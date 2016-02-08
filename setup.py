@@ -27,6 +27,6 @@ setup(
         "Topic :: Software Development"
     ],
     packages=[
-        'django-gpxpy',
+        'django_gpxpy',
     ],
 )
