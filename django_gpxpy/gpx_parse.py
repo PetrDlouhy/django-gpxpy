@@ -40,6 +40,6 @@ def parse_gpx(track):
                     if len(track_list_of_points) > 1:
                         multiline.append(LineString(track_list_of_points))
             return MultiLineString(multiline)
-    except gpxpy.gpx.GPXException as e:
+    except gpxpy.GPXException as e:
         logger.error("Valid GPX file: %s" % e)
         raise ValidationError(u"Vadný GPX soubor: %s" % e)
