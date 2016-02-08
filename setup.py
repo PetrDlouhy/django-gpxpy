@@ -18,7 +18,7 @@ setup(
         'gpxpy',
     ],
     classifiers=[
-        "Development Status :: 1 - Pre-Alpha",
+        "Development Status :: 2 - Pre-Alpha",
         "Framework :: Django",
         "Intended Audience :: Developers",
         "Intended Audience :: System Administrators",
