@@ -11,6 +11,16 @@ class DjangoGpxPyTests(TestCase):
         with open("tests/test_data/test_track.gpx", "r") as f:
             multilinestring = parse_gpx(f)
         self.assertEquals(multilinestring.num_geom, 26)
+        self.assertEquals(multilinestring.length, 0.31341761110953986)
+
+    def test_gpx_with_route(self):
+        """
+        test if the admin page with RelatedFieldRadioFilter filters loads succesfully
+        """
+        with open("tests/test_data/test_with_route.gpx", "r") as f:
+            multilinestring = parse_gpx(f)
+        self.assertEquals(multilinestring.num_geom, 1)
+        self.assertEquals(multilinestring.length, 0.10557333372775202)
 
     def test_bad_file_parsing(self):
         """
