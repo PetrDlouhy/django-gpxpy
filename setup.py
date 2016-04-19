@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='django-gpxpy',
-    version='0.0.0',
+    version='0.0.1',
     description='Django integration of GpxPy',
     long_description='Django integration of GpxPy',
     author=', '.join((
