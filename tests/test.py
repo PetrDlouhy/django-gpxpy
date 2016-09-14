@@ -29,8 +29,8 @@ class DjangoGpxPyTests(TestCase):
         """
         test if the admin page with RelatedFieldRadioFilter filters loads succesfully
         """
-        with open("tests/test_data/test_track.gpx", "rb") as f:
-            file_field = SimpleUploadedFile('tests/test_data/test_track.gpx', f.read())
+        with open("tests/test_data/test_track.gpx.gz", "rb") as f:
+            file_field = SimpleUploadedFile('tests/test_data/test_track.gpx.gz', f.read())
             multilinestring = parse_gpx_filefield(file_field)
         self.assertEquals(multilinestring.num_geom, 26)
         self.assertEquals(multilinestring.length, 0.31341761110953986)
