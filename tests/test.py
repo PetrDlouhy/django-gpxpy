@@ -1,8 +1,8 @@
-from django_gpxpy.gpx_parse import parse_gpx, parse_gpx_filefield
-from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase
 
+from django_gpxpy.gpx_parse import parse_gpx, parse_gpx_filefield
 
 
 class DjangoGpxPyTests(TestCase):

@@ -19,11 +19,12 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 import gzip
-
-from django.core.exceptions import ValidationError
-from django.contrib.gis.geos import Point, LineString, MultiLineString
-import gpxpy
 import logging
+
+from django.contrib.gis.geos import LineString, MultiLineString, Point
+from django.core.exceptions import ValidationError
+
+import gpxpy
 logger = logging.getLogger(__name__)
 
 
