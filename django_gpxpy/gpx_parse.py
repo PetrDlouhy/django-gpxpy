@@ -73,7 +73,7 @@ def parse_gpx(track):
 
 def parse_gpx_filefield(filefield):
     if filefield.name.endswith(".gz"):
-        track_file = gzip.open(filefield).read().decode("utf-8")
+        track_file = gzip.GzipFile(fileobj=filefield).read().decode("utf-8")
     else:
         track_file = filefield.read().decode("utf-8")
     return parse_gpx(track_file)
