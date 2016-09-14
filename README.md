@@ -1,6 +1,7 @@
 Django integration of GpxPy
 ===========================
 [![Build Status](https://travis-ci.org/PetrDlouhy/django-gpxpy.svg?branch=master)](https://travis-ci.org/PetrDlouhy/django-gpxpy)
+[![Coverage Status](https://coveralls.io/repos/github/PetrDlouhy/django-gpxpy/badge.svg?branch=master)](https://coveralls.io/github/PetrDlouhy/django-gpxpy?branch=master)
 
 
 This module only contains simple code that parses GPX file to MultiLineString using GpxPy. In the future it might also contain GPX model field and GPX form field which would be used to upload GPX file and parse it.
