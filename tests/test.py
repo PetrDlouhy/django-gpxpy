@@ -1,6 +1,8 @@
-from django_gpxpy.gpx_parse import parse_gpx
+from django_gpxpy.gpx_parse import parse_gpx, parse_gpx_filefield
 from django.test import TestCase
 from django.core.exceptions import ValidationError
+from django.core.files.uploadedfile import SimpleUploadedFile
+
 
 
 class DjangoGpxPyTests(TestCase):
@@ -10,6 +12,26 @@ class DjangoGpxPyTests(TestCase):
         """
         with open("tests/test_data/test_track.gpx", "r") as f:
             multilinestring = parse_gpx(f)
+        self.assertEquals(multilinestring.num_geom, 26)
+        self.assertEquals(multilinestring.length, 0.31341761110953986)
+
+    def test_gpx_parse_filefiled(self):
+        """
+        test if the admin page with RelatedFieldRadioFilter filters loads succesfully
+        """
+        with open("tests/test_data/test_track.gpx", "rb") as f:
+            file_field = SimpleUploadedFile('tests/test_data/test_track.gpx', f.read())
+            multilinestring = parse_gpx_filefield(file_field)
+        self.assertEquals(multilinestring.num_geom, 26)
+        self.assertEquals(multilinestring.length, 0.31341761110953986)
+
+    def test_gpx_parse_filefiled_gz(self):
+        """
+        test if the admin page with RelatedFieldRadioFilter filters loads succesfully
+        """
+        with open("tests/test_data/test_track.gpx", "rb") as f:
+            file_field = SimpleUploadedFile('tests/test_data/test_track.gpx', f.read())
+            multilinestring = parse_gpx_filefield(file_field)
         self.assertEquals(multilinestring.num_geom, 26)
         self.assertEquals(multilinestring.length, 0.31341761110953986)
 

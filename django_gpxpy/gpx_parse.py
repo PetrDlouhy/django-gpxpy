@@ -18,6 +18,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+import gzip
+
 from django.core.exceptions import ValidationError
 from django.contrib.gis.geos import Point, LineString, MultiLineString
 import gpxpy
@@ -66,3 +68,11 @@ def parse_gpx(track):
     except gpxpy.gpx.GPXException as e:
         logger.error("Valid GPX file: %s" % e)
         raise ValidationError(u"Vadný GPX soubor: %s" % e)
+
+
+def parse_gpx_filefield(filefield):
+    if filefield.name.endswith(".gz"):
+        track_file = gzip.open(filefield).read().decode("utf-8")
+    else:
+        track_file = filefield.read().decode("utf-8")
+    return parse_gpx(track_file)
